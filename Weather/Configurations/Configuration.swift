@@ -20,3 +20,10 @@ enum API {
         return baseURL.appendingPathComponent(apiKey)
     }
 }
+
+enum Defaults {
+
+    static let latitude: Double = 51.400592
+    static let longitude: Double = 4.760970
+
+}

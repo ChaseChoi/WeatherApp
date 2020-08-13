@@ -30,7 +30,7 @@ struct WeatherData {
         case summary
         case windSpeed
         case temperature
-        case icon = "iconName"
+        case iconName = "icon"
     }
 }
 
@@ -46,6 +46,6 @@ extension WeatherData: Decodable {
         windSpeed = try currentlyWeather.decode(Double.self, forKey: .windSpeed)
         
         temperature = try currentlyWeather.decode(Double.self, forKey: .temperature)
-        iconName = try currentlyWeather.decode(String.self, forKey: .icon)
+        iconName = try currentlyWeather.decode(String.self, forKey: .iconName)
     }
 }
