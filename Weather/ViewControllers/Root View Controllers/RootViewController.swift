@@ -36,8 +36,9 @@ class RootViewController: UIViewController {
             switch result {
             case .failure(let error):
                 print(error.localizedDescription)
-            case .success(let data):
-                print(data)
+            case .success(let weatherData):
+                print(weatherData)
+                self.dayViewController.weatherData = weatherData
             }
         }
     }
@@ -74,13 +75,12 @@ class RootViewController: UIViewController {
     }
     
     private func setupLayout() {
-        let layoutGuide = view.safeAreaLayoutGuide
         
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: layoutGuide.topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: layoutGuide.bottomAnchor),
-            stackView.leadingAnchor.constraint(equalTo: layoutGuide.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: layoutGuide.trailingAnchor),
+            stackView.topAnchor.constraint(equalTo: view.topAnchor),
+            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
     }
     
