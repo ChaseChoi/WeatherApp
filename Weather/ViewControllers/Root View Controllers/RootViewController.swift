@@ -39,6 +39,7 @@ class RootViewController: UIViewController {
             case .success(let weatherData):
                 print(weatherData)
                 self.dayViewController.weatherData = weatherData
+                self.weekViewController.dailyData = weatherData.dailyData
             }
         }
     }

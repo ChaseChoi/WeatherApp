@@ -37,6 +37,12 @@ struct WeatherData {
     enum DailyWeatherCodingKeys: String, CodingKey {
         case data
     }
+    
+    var celciusTemperature: Double {
+        let fahrenheit = Measurement(value: temperature, unit: UnitTemperature.fahrenheit)
+        let converted = fahrenheit.converted(to: .celsius)
+        return converted.value
+    }
 }
 
 extension WeatherData: Decodable {
@@ -64,6 +70,18 @@ struct DailyWeatherData: Decodable {
     let windSpeed: Double
     let temperatureMin: Double
     let temperatureMax: Double
+    
+    var celciusTemperatureMin: Double {
+        let fahrenheit = Measurement(value: temperatureMin, unit: UnitTemperature.fahrenheit)
+        let converted = fahrenheit.converted(to: .celsius)
+        return converted.value
+    }
+    
+    var celciusTemperatureMax: Double {
+        let fahrenheit = Measurement(value: temperatureMax, unit: UnitTemperature.fahrenheit)
+        let converted = fahrenheit.converted(to: .celsius)
+        return converted.value
+    }
     
     enum CodingKeys: String, CodingKey {
         case time

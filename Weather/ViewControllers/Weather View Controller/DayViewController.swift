@@ -22,6 +22,7 @@ class DayViewController: UIViewController {
     let temperatureLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.boldSystemFont(ofSize: 25)
         return label
     }()
     
@@ -88,7 +89,7 @@ class DayViewController: UIViewController {
         activityIndicatorView.stopAnimating()
         
         descriptionLabel.text = weatherData.summary
-        temperatureLabel.text = "\(weatherData.temperature)"
+        temperatureLabel.text = String(format: "%.f", weatherData.celciusTemperature)
         let iconImage = UIImage(named: weatherData.iconName)?.withTintColor(.systemOrange)
         iconImageView.image = iconImage
     }
